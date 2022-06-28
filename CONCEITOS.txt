@@ -1,0 +1,12 @@
+Cookies armazena informações permanentemente, exemplo
+quando usuario coloca uma item no carrinho de compra, ai
+depois de dias se ele voltar o item estará no carrinho.
+
+Sessões armezena informações temporariamente, exemplo o 
+email do usuario, é mais seguro que os cookies, porém dependem
+deles.
+
+Middleware: é uma parte do software que 
+intermedia as requisições que o usuario faz ao
+servidor, com ele conseguimos manipular as respostas antes
+de chegar ao destino.

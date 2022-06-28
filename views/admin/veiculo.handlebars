@@ -1,0 +1,31 @@
+<!-- GET: Envia os dados pela URL -->
+<!-- POST: Envia os dados de outra forma -->
+
+<!--  atributo action: informa para qual rota sera enviado os dados  -->
+<!--  atributo method: forma como os dados do formulario serao enviados  -->
+<!-- tag br da um espaço -->
+<h2>Lista de veículos: </h2>
+<br>
+<a href="/admin/cad/add"><button class="btn btn-success">Novo veiculo</button></a>
+    
+{{#each veiculo}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{nome}}</h4>
+            <small>Marca: {{marca}}</small><br>
+            <small>Data de criação: {{data}}</small>
+            <br>
+            <br>
+            <a href="/admin/cad/edit/{{_id}}"><button class="btn btn-success">Editar veiculo</button></a>
+            <form action="/admin/cad/del" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <br>
+                <button type="submit" class="btn btn-danger">Deletar veiculo</button>
+            </form>
+        </div>
+
+    </div>
+{{else}}
+
+<h4 class="mt-3">Nenhum veiculo cadastrado !</h4>
+{{/each}}

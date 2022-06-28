@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style type="text/css">
+  
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@500&family=Righteous&family=Roboto:wght@500&family=Sarala&display=swap");
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
+
+.mErro{
+  color: red;
+}
+
+.mErroExc{
+  color: red;
+}
+
+.marca{
+  margin-left: -30%;
+  margin-top: 30px;
+}
+
+.pos{
+  margin-left: -30%;
+  margin-top: 40px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none; /* Contorno */
+  border: none;
+  transition: 0.2s linear;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth; 
+}
+
+.btn_limpar{
+  width: 100px;
+  height: 50px;
+  background: black;
+  margin-left: 7%; 
+  color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3); 
+  margin-top: 10px;
+}
+
+.btn_deslogar{
+  width: 100px;
+  height: 50px;
+  background: black;
+  margin-left: 7%; 
+  color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3); 
+  margin-top: 10px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 9%;
+}
+
+.header .navbar a,
+.header .others a {
+  font-size: 0.9rem;
+  color: #171a20;
+  margin-left: 1rem;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+.header .navbar a:hover,
+.header .others a:hover,
+.button-menu:hover {
+  padding: 0.5rem 1rem;
+  background: #0000000d;
+  border-radius: 10px;
+}
+
+.home {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  padding: 0rem 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.home p {
+  font-size: 0.9rem;
+  color: #171a20;
+  font-family: "Poppins", sans-serif;
+  padding: 0.4rem 1rem 1.5rem;
+}
+
+.home p a {
+  color: #171a20;
+}
+
+.button {
+  padding-top: 18rem;
+  font-family: "Poppins", sans-serif;
+}
+
+#angle-down {
+  margin-top: 4rem;
+  font-size: 1.7rem;
+  color: #393c41;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+.home div .custom {
+  color: white;
+  padding: 10px 70px;
+  background: rgba(23, 26, 32, 0.9);
+  border-radius: 100px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  margin-right: 1rem;
+}
+
+.home div .inventory {
+  color: #393941;
+  padding: 10px 40px;
+  background: rgba(244, 244, 244, 0.9);
+  border-radius: 100px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+#angle {
+  font-size: 1.2rem;
+  margin-left: 10rem;
+}
+
+.header-responsive {
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  background: white;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.header-responsive.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.header-responsive .navbar-responsive a,
+.header-responsive .others-responsive a {
+  display: flex;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: right;
+  color: #393c41;
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#close-menu {
+  font-size: 1.5rem;
+  color: #393c41;
+  cursor: pointer;
+  margin: 1.1rem 1rem 2rem 15rem;
+}
+
+/**/
+.login-form-container {
+  position: absolute;
+  top: -140%;
+  left: 0;
+  z-index: 10000;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-container.active {
+  top: 0;
+}
+
+
+.login-form-container form {
+  margin: 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  width: 50rem;
+}
+
+.login-form-container form h3 {
+  font-size: 3rem;
+  color: #444;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem 0;
+  color: black;
+}
+
+.login-form-container form .box {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: #333;
+  margin: 0.6rem 0;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  text-transform: none;
+}
+
+.login-form-container form .box:focus {
+  border-color: rgb(54, 54, 54);
+}
+
+.login-form-container form #remember {
+  margin: 2rem 0;
+}
+
+.login-form-container form label {
+  font-size: 1.5rem;
+}
+
+.login-form-container form .btn {
+  display: block;
+  width: 100%;
+}
+
+.login-form-container form p {
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.login-form-container form p a {
+  color: #333;
+}
+
+.login-form-container form p a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+#entrar-form {
+  height: 3rem;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+#entrar-form:hover {
+  background: #333;
+}
+
+.login-form-container #form-close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  font-size: 4rem;
+  color: black;
+  cursor: pointer;
+}
+
+.login-form-container #form-close:hover {
+  color: gray;
+}
+
+/*Consulta*/
+.consulta{
+  display: none;
+}
+
+.consulta.active {
+display: initial;
+align-items: center;
+justify-content: center; 
+}
+
+.consulta .h1 {
+  margin-top: 50px;
+  font-size: 40px;
+}
+
+.consulta .organizar_consulta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.consulta .organizar_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: inline;
+}
+
+
+.cadVeiculo {
+  width: 100px;
+  height: 50px;
+  background: black;
+  margin-left: 500%;
+  color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+.cadPostagem {
+  width: 100px;
+  height: 50px;
+  background: black;
+  margin-left: 500%;
+  color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+
+
+/*Fim consulta*/
+div {
+  color: red;
+}
+#lembrar {
+  color: black;
+}
+@media (max-width: 1199px) {
+  .header .hide {
+    display: none;
+  }
+
+  .button-menu {
+    padding: 0.5rem 1rem;
+    background: #0000000d;
+    border-radius: 10px;
+  }
+  .home .button {
+    padding-top: 13rem;
+  }
+
+  #angle-down {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .home .button {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding-top: 12rem;
+  }
+
+  .home .button .custom,
+  .home .button .custom .inventory {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  #angle-down {
+    margin-top: 2rem;
+    margin-right: 0rem;
+  }
+
+  .login-form-container form h3 {
+    font-size: 2rem;
+  }
+
+  .login-form-container #form-close {
+    font-size: 3rem;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <img class="background" src="http://localhost:8081/img/bg.jpg">
+  <!-- Header starts -->
+  <header class="header">
+    <img src="http://localhost:8081/img/logo.png" class="header-image">
+
+    <nav class="navbar">
+      <a href="#" class="hide">Model S</a>
+      <a href="#" class="hide">Model 3</a>
+      <a href="#" class="hide">Model X</a>
+      <a href="#" class="hide">Model Y</a>
+      <a href="#" class="hide">Solar Roof</a>
+      <a href="#" class="hide">Solar Panels</a>
+    </nav>
+    <div class="others">
+      <a href="/usuarios/login" class="hide">Login</a>
+      <a href="/usuarios/registro" class="hide" id="account-btn">Criar Conta</a>
+      <a href="#" class="button-menu">Menu</a>
+    </div>
+
+  </header>
+  <!-- Header ends  -->
+
+  <section class="home">
+    <h1 class="model-3">Model 3</h1>
+    <a href="/admin/cad"><button class="cadVeiculo">Veículos</button></a>
+    <a href="/admin/postagem"><button class="cadPostagem">Postagens</button></a>
+    <p>Order online for <a href="#">Touchless Delivery</a> </p>
+
+    <div class="button">
+      <button class="custom">CUSTOM ORDER</button>
+      <button class="inventory">EXISTING INVENTORY</button>
+    </div>
+
+    <i id="angle-down" class="fas fa-angle-down"></i>
+
+  </section>
+
+  <section>
+    <!-- Header responsive starts  -->
+    <header class="header-responsive">
+      <i id="close-menu" class="fas fa-times"></i>
+
+      <nav class="navbar-responsive">
+        <a href="#">Model S</a>
+        <a href="#">Model 3</a>
+        <a href="#">Model X</a>
+        <a href="#">Model Y</a>
+        <a href="#">Solar Roof</a>
+        <a href="#">Solar Panels</a>
+        <a href="#">Existing Inventory</a>
+        <a href="#">Used Inventory</a>
+        <a href="#">Tradep-In</a>
+        <a href="#">Test Drive</a>
+        <a href="#">Powerwall</a>
+        <a href="#">Commercial Energy</a>
+        <a href="#">Utilities</a>
+        <a href="#">Charging</a>
+        <a href="#">Find Us</a>
+        <a href="#">Support</a>
+        <a href="#">Investor Relations</a>
+      </nav>
+
+      <div class="others-responsive">
+        <a href="#">Shop</a>
+        <a href="#">Acount</a>
+        <a href="#">More <i id="angle" class="fas fa-angle-right"></i></a>
+      </div>
+
+    </header>
+    <!-- Header responsive ends  -->
+  </section>
+  
+  
+  <script src="app.js"></script>
+</body>
+
+</html>
