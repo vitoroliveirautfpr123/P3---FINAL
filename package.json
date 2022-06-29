@@ -9,5 +9,24 @@
     "mongoose": "^6.3.6",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "name": "p3---final",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitoroliveirautfpr123/P3---FINAL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitoroliveirautfpr123/P3---FINAL/issues"
+  },
+  "homepage": "https://github.com/vitoroliveirautfpr123/P3---FINAL#readme",
+  "description": ""
 }

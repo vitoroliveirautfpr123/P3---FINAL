@@ -9,7 +9,7 @@ const admin = require('./routes/admin'); // para usar rotas
 const usuarios = require('./routes/usuario'); 
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const db = require('./config/db.js');
 
 
 // Faz autenticação do usuario
@@ -49,7 +49,7 @@ require('./config/auth')(passport);
     app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));// main é o template padrão da aplicação
     app.set('view engine','handlebars');
     // Mongoose
-    mongoose.connect("mongodb://localhost:27017/tesla").then(()=>{
+    mongoose.connect(db.mongoURI).then(()=>{
         console.log("Banco conectado com sucesso!!!");
     }).catch((err)=>{
         console.log("Houve um erro ao se conectar ao banco:" +err);
@@ -69,7 +69,7 @@ require('./config/auth')(passport);
     app.use('/usuarios',usuarios);
 
 //Outros
-const PORT = 8081; // minha porta escolhida
+const PORT = process.env.PORT || 8091; // minha porta escolhida
 app.listen(PORT,()=>{
     console.log('Servidor rodando !');
 });
