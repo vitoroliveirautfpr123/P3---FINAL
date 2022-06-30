@@ -17,6 +17,7 @@
     
     });
 
+
     // Rota que leva para o formulario de cadastro de veiculo
     router.get('/cad/add',eAdmin,(req,res)=>{
         res.render('admin/cadVeiculo');

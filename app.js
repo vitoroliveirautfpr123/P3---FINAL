@@ -9,8 +9,7 @@ const admin = require('./routes/admin'); // para usar rotas
 const usuarios = require('./routes/usuario'); 
 const session = require('express-session');
 const flash = require('connect-flash');
-const db = require('./config/db.js');
-
+const db = require('./config/db');
 
 // Faz autenticação do usuario
 const passport = require('passport');
@@ -69,7 +68,7 @@ require('./config/auth')(passport);
     app.use('/usuarios',usuarios);
 
 //Outros
-const PORT = process.env.PORT || 8091; // minha porta escolhida
+const PORT = process.env.PORT || 8081; // minha porta escolhida
 app.listen(PORT,()=>{
     console.log('Servidor rodando !');
 });
