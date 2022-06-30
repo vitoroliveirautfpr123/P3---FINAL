@@ -23,6 +23,18 @@
         res.render('admin/cadVeiculo');
     });
 
+    // Rota que leva para o formulario de consulta de veiculo
+    router.get('/cons',(req,res)=>{
+         res.render('admin/consVeiculo');
+    });
+
+    // Rota que faz a consulta por marca
+    router.post('/cons',(req,res)=>{
+        Veiculo.find({marca: ''+req.body.marca+''}).sort({data: 'desc'}).lean().then((veiculo) =>{ // estou listando os veiculos pela marca, tem que usar aspas antes e depois pq é a marca passada é string 
+            res.render('admin/mostraVeiculo',{veiculo: veiculo});    
+        });
+    });
+
     // Rota que faz o cadastro de veiculo
     router.post('/cad/add',eAdmin, (req,res)=>{
         var erros = []; // declarei um array vazio
